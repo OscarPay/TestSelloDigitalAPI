@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:notariospublicos="http://www.sat.gob.mx/notariospublicos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.2" serie="A" folio="16" fecha="2016-05-23T09:56:00" sello="BqSPuOFcXgpDN6VxAreSfJxeGjAaIMb3A8CV5RKWPvxcxN463JU4/4dQAK2R+KiXbFgqkZpf44e46MS6FMU2CVbSU1wBHWjvQ+537fp4htVhrSwxzsxX9QJYfEYjdHBej6ZjoAfgK4C5qrrV/+domX0WAMpomIZmPc88LgZtuVU=" total="290.00" subTotal="250.00" descuento="0.00" Moneda="MXN" certificado="MIIE2jCCA8KgAwIBAgIUMjAwMDEwMDAwMDAyMDAwMDAyOTMwDQYJKoZIhvcNAQEFBQAwggFcMRowGAYDVQQDDBFBLkMuIDIgZGUgcHJ1ZWJhczEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMSkwJwYJKoZIhvcNAQkBFhphc2lzbmV0QHBydWViYXMuc2F0LmdvYi5teDEmMCQGA1UECQwdQXYuIEhpZGFsZ28gNzcsIENvbC4gR3VlcnJlcm8xDjAMBgNVBBEMBTA2MzAwMQswCQYDVQQGEwJNWDEZMBcGA1UECAwQRGlzdHJpdG8gRmVkZXJhbDESMBAGA1UEBwwJQ295b2Fjw6FuMTQwMgYJKoZIhvcNAQkCDCVSZXNwb25zYWJsZTogQXJhY2VsaSBHYW5kYXJhIEJhdXRpc3RhMB4XDTEyMTAyNjE5MjI0M1oXDTE2MTAyNjE5MjI0M1owggFTMUkwRwYDVQQDE0BBU09DSUFDSU9OIERFIEFHUklDVUxUT1JFUyBERUwgRElTVFJJVE8gREUgUklFR08gMDA0IERPTiBNQVJUSU4gMWEwXwYDVQQpE1hBU09DSUFDSU9OIERFIEFHUklDVUxUT1JFUyBERUwgRElTVFJJVE8gREUgUklFR08gMDA0IERPTiBNQVJUSU4gQ09BSFVJTEEgWSBOVUVWTyBMRU9OIEFDMUkwRwYDVQQKE0BBU09DSUFDSU9OIERFIEFHUklDVUxUT1JFUyBERUwgRElTVFJJVE8gREUgUklFR08gMDA0IERPTiBNQVJUSU4gMSUwIwYDVQQtExxBQUQ5OTA4MTRCUDcgLyBIRUdUNzYxMDAzNFMyMR4wHAYDVQQFExUgLyBIRUdUNzYxMDAzTURGUk5OMDkxETAPBgNVBAsTCFNlcnZpZG9yMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlrI9loozd+UcW7YHtqJimQjzX9wHIUcc1KZyBBB8/5fZsgZ/smWS4Sd6HnPs9GSTtnTmM4bEgx28N3ulUshaaBEtZo3tsjwkBV/yVQ3SRyMDkqBA2NEjbcum+e/MdCMHiPI1eSGHEpdESt55a0S6N24PW732Xm3ZbGgOp1tht1wIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAuoPXe+BBIrmJn+IGeI+m97OlP3RC4Ct3amjGmZICbvhI9BTBLCL/PzQjjWBwU0MG8uK6e/gcB9f+klPiXhQTeI1YKzFtWrzctpNEJYo0KXMgvDiputKphQ324dP0nzkKUfXlRIzScJJCSgRw9ZifKWN0D9qTdkNkjk83ToPgwnldg5lzU62woXo4AKbcuabAYOVoC7owM5bfNuWJe566UzD6i5PFY15jYMzi1+ICriDItCv3S+JdqyrBrX3RloZhdyXqs2Htxfw4b1OcYboPCu4+9qM3OV02wyGKlGQMhfrXNwYyj8huxS1pHghEROM2Zs0paZUOy+6ajM+Xh0LX2w==" formaDePago="Pago en una sola exhibición." noCertificado="20001000000200000293" tipoDeComprobante="ingreso" metodoDePago="Efectivo" LugarExpedicion="México, Yucatán" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd">
+  <cfdi:Emisor rfc="AAD990814BP7" nombre="Finkok, S.A. de C.V.">
+    <cfdi:DomicilioFiscal pais="México" calle="Av. Tres Marías Terrazas" municipio="Morelia" estado="Michoacán" codigoPostal="58254" noExterior="No. 240" noInterior="-" colonia="Col. Tres Marías" localidad="Morelia"/>
+    <cfdi:ExpedidoEn pais="México" calle="10 x 12 y 14" noExterior="130d" colonia="pensiones" estado="Yucatán" codigoPostal="97000" noInterior="9" localidad="Merida" referencia="super aki" municipio="Merida"/>
+    <cfdi:RegimenFiscal Regimen="Persona Moral"/>
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="FEHI840824SUA" nombre="Ileana del Carmen Fernández Hernández">
+    <cfdi:Domicilio pais="México" calle="CALLE 12 diagonal X CALLE 8" noExterior="508C" noInterior="INTERIOR 1" colonia="COL. GARCIA GINERES" municipio="Merida" estado="Yucatán" codigoPostal="97070" localidad="Merida"/>
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto unidad="CAJAS" importe="250.00" cantidad="1.0" descripcion="Refrescos" valorUnitario="250.0"/>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos totalImpuestosRetenidos="0.00" totalImpuestosTrasladados="40.00">
+    <cfdi:Traslados>
+      <cfdi:Traslado tasa="16.00" importe="40.00" impuesto="IVA"/>
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" FechaTimbrado="2016-05-23T09:57:11" selloCFD="BqSPuOFcXgpDN6VxAreSfJxeGjAaIMb3A8CV5RKWPvxcxN463JU4/4dQAK2R+KiXbFgqkZpf44e46MS6FMU2CVbSU1wBHWjvQ+537fp4htVhrSwxzsxX9QJYfEYjdHBej6ZjoAfgK4C5qrrV/+domX0WAMpomIZmPc88LgZtuVU=" UUID="43DF68F0-06EF-4C59-BDDE-F77C9E745F7D" noCertificadoSAT="20001000000100005761" selloSAT="2oroglTI1K7OOE9gu11ErtneQs26chohwJh6DL0Gz46RQFxNMVM+60n0Wn3OzP2eviYT0FCWcm6U7WjUo9cUAJWjL8yHlolNBsZJdTNqi3QzI1XkVjuHsKvswBfPGV1sgtn7dFoVM3mYr44rV3GWsTJa1xjCs9EkhGRhGkdaK1w="/>
+  </cfdi:Complemento>
+</cfdi:Comprobante>
