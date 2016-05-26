@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
-  root to: 'test#index'
+  root to: 'invoices#index'
+
+  resources :invoices, only: [:index, :new]
 
 end
