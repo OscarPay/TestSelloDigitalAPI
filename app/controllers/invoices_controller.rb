@@ -26,20 +26,6 @@ class InvoicesController < ApplicationController
 
   def new
 
-=begin
-    address_invoice = {
-        street: 'c 20 #104',
-        num_internal: "50",
-        num_outside: 'asdfasd',
-        colony: 'Merida',
-        location: 'asdfaf',
-        municipality: 'Merida',
-        reference: "la meztiza",
-        state_id: 1,
-        cp: '04930'
-    }
-=end
-
     json_invoice = {invoice: {serie: 'Z', folio: 101, date: Time.zone.now,
                               payment_form: 'Pago en una sola exhibición.',
                               num_account: 4444, payment_conditions: 'muchas',
