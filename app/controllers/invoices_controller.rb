@@ -5,7 +5,7 @@ class InvoicesController < ApplicationController
     path = Rails.root.join("public", "invoices")
     Dir.mkdir(path) unless File.exist?(path)
 
-    response = RestClient.get 'http://0.0.0.0:3000/api/invoices/13'
+    response = RestClient.get host + '/invoices/13'
     json_response = JSON.parse(response.body)
 
     @status = json_response["invoice_status"]
@@ -25,6 +25,8 @@ class InvoicesController < ApplicationController
   end
 
   def new
+
+=begin
     address_invoice = {
         street: 'c 20 #104',
         num_internal: "50",
@@ -33,24 +35,28 @@ class InvoicesController < ApplicationController
         location: 'asdfaf',
         municipality: 'Merida',
         reference: "la meztiza",
+        state_id: 1,
         cp: '04930'
     }
+=end
 
-    json_invoice = {invoice: {serie: 'Z', folio: 1, date: Time.zone.now,
+    json_invoice = {invoice: {serie: 'Z', folio: 101, date: Time.zone.now,
                               payment_form: 'Pago en una sola exhibición.',
                               num_account: 4444, payment_conditions: 'muchas',
-                              note: 'asdasd', discount_amount: 50,
-                              branch_attributes: {name: 'La baticueva', phone: 9343434,
-                                                  address_attributes: address_invoice}
-                              #receptor_attributes: {rfc: 'TDA000320EV3', social_reason: 'Pruebas',
-                              #                     address_attributes: address_invoice},
-                              #issuer_attributes: {social_reason: 'Pruebas', rfc: 'ROCV890731AE7',
-                              #                   fiscal_regime: 'Pruebas', address_attributes: address_invoice},
-                              #concepts_attributes: { quantity: 5, unit: 4, description: 'Producto de Prueba',
-                              #                      amount: 200, price: 50, iva_type_id: 2}
+                              note: 'asdasd', discount_amount: 50, issuer_id: 1,
+                              receptor_id: 1, branch_id: 1,
+                              concepts_attributes: {"0": {quantity: 4, unit: "hola mundo", price: 30, description: "hdsda", iva_type_id: 1},
+                                                    "1": {quantity: 5, unit: "hola mundo", price: 31, description: "jejej", iva_type_id: 1}
+                              }
     }}
 
-    @response = RestClient.post('http://0.0.0.0:3000/api/invoices', json_invoice)
+    @response = RestClient.post(host + '/invoices', json_invoice)
+  end
+
+  private
+
+  def host
+    'http://api.localhost.com:3000'
   end
 
 end
