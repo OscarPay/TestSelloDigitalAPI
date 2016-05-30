@@ -26,17 +26,24 @@ class InvoicesController < ApplicationController
 
   def new
 
+    #Agregar en el servidor el timbrado al crearlo para ver si le agrega el invoice_status_id
+
     json_invoice = {invoice: {serie: 'Z', folio: 101, date: Time.zone.now,
                               payment_form: 'Pago en una sola exhibición.',
                               num_account: 4444, payment_conditions: 'muchas',
-                              note: 'asdasd', discount_amount: 50, issuer_id: 1,
-                              receptor_id: 1, branch_id: 1,
+                              note: 'asdasd', discount_amount: 50, issuer_id: 2,
+                              invoice_status_id: 1,
+                              receptor_id: 1, branch_id: 1, is_test: 0, invoice_type_id: 1,
                               concepts_attributes: {"0": {quantity: 4, unit: "hola mundo", price: 30, description: "hdsda", iva_type_id: 1},
                                                     "1": {quantity: 5, unit: "hola mundo", price: 31, description: "jejej", iva_type_id: 1}
                               }
     }}
 
     @response = RestClient.post(host + '/invoices', json_invoice)
+  end
+
+  def edit
+    @response = RestClient.get(host + "/invoices/#{params[:id]}/stamp")
   end
 
   private
