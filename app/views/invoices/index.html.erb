@@ -2,7 +2,8 @@
 <p>Find me in app/views/test/index.html.erb</p>
 
 <%= link_to "POST", new_invoice_path %>
-<%= link_to "STAMP", edit_invoice_path(21) %>
+<%= link_to "STAMP", edit_invoice_path(37) %>
+<%= link_to "CANCELAR", invoice_path(4, method: :delete) %>
 
 <p><%= @status %></p>
 
