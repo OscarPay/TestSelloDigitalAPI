@@ -5,30 +5,33 @@ class InvoicesController < ApplicationController
     path = Rails.root.join("public", "invoices")
     Dir.mkdir(path) unless File.exist?(path)
 
-    response = RestClient.get host + '/invoices/13'
+    response = RestClient.get host + '/invoices/1'
     json_response = JSON.parse(response.body)
 
     @status = json_response["invoice_status"]
     @invoice = json_response["invoice"]
 
-    xml_doc = Nokogiri::XML(json_response["xml"])
 
-    pdf_doc = Base64.decode64(json_response["pdf_file"])
+    if @status === "Timbrada"
+      xml_doc = Nokogiri::XML(json_response["xml"])
+      pdf_doc = Base64.decode64(json_response["pdf_file"])
 
-    File.open(File.join(path, "invoice.xml"), 'w') do |f|
-      f.write(xml_doc)
+      File.open(File.join(path, "invoice.xml"), 'w') do |f|
+        f.write(xml_doc)
+      end
+
+      File.open(File.join(path, "invoice.pdf"), 'wb') do |f|
+        f.write(pdf_doc)
+      end
     end
 
-    File.open(File.join(path, "invoice.pdf"), 'wb') do |f|
-      f.write(pdf_doc)
-    end
   end
 
   def new
 
     #Agregar en el servidor el timbrado al crearlo para ver si le agrega el invoice_status_id
 
-    json_invoice = {invoice: {serie: 'Z', folio: 110, date: Time.zone.now,
+    json_invoice = {invoice: {serie: 'Z', folio: 114, date: Time.zone.now,
                               payment_form: 'Pago en una sola exhibición.',
                               payment_conditions: 'muchas',
                               note: 'asdasd', discount_amount: 50, issuer_id: 2,
@@ -47,8 +50,8 @@ class InvoicesController < ApplicationController
     @response = RestClient.get(host + "/invoices/#{params[:id]}/stamp")
   end
 
-  def delete
-    @response = RestClient.delete(host + "/invoices/#{params[:id]}")
+  def destroy
+    @response = RestClient.get(host + "/invoices/#{params[:id]}/cancel")
   end
 
   private
