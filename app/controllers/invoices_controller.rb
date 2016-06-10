@@ -5,11 +5,11 @@ class InvoicesController < ApplicationController
     path = Rails.root.join("public", "invoices")
     Dir.mkdir(path) unless File.exist?(path)
 
-    response = RestClient.get host + '/invoices/1'
+    response = RestClient.get host + '/invoices/20'
     json_response = JSON.parse(response.body)
 
     @status = json_response["invoice_status"]
-    @invoice = json_response["invoice"]
+    @invoice = json_response
 
 
     if @status === "Timbrada"
@@ -30,16 +30,17 @@ class InvoicesController < ApplicationController
   def new
 
     #Agregar en el servidor el timbrado al crearlo para ver si le agrega el invoice_status_id
-
-    json_invoice = {invoice: {serie: 'Z', folio: 114, date: Time.zone.now,
+    json_invoice = {invoice: {serie: 'Y', folio: 5, date: Time.zone.now,
                               payment_form: 'Pago en una sola exhibición.',
                               payment_conditions: 'muchas',
                               note: 'asdasd', discount_amount: 50, issuer_id: 2,
                               payment_method_id: 1, receipt_type_id: 1, money_id: 1,
                               receptor_id: 1, branch_id: 1, is_test: 0, invoice_type_id: 1,
                               discount_type_id: 1,
-                              concepts_attributes: {"0": {quantity: 4, unit: "hola mundo", price: 30, description: "hdsda", iva_type_id: 1},
-                                                    "1": {quantity: 5, unit: "hola mundo", price: 31, description: "jejej", iva_type_id: 1}
+                              concepts_attributes: {"0": {quantity: 4, unit: "hola mundo", price: 30,
+                                                          description: "hdsda", iva_type_id: 1},
+                                                    "1": {quantity: 5, unit: "hola mundo", price: 31,
+                                                          description: "jejej", iva_type_id: 1}
                               }
     }}
 
