@@ -30,7 +30,7 @@ class InvoicesController < ApplicationController
   def new
 
     #Agregar en el servidor el timbrado al crearlo para ver si le agrega el invoice_status_id
-    json_invoice = {invoice: {serie: 'Y', folio: 12, date: Time.zone.now,
+    json_invoice = {invoice: {date: Time.zone.now,
                               payment_form: 'Pago en una sola exhibición.',
                               payment_conditions: 'muchas',
                               note: 'asdasd', discount_amount: 50, issuer_rfc: 'AAD990814BP7',
