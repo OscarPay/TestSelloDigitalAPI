@@ -1,11 +1,14 @@
 class InvoicesController < ApplicationController
   require 'rest-client'
 
+  HOST = 'http://api.localhost.com:3000'.freeze
+  ACCESS_TOKEN = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjoyLCJuYW1lIjoiVmljdG9yIiwiZW52aXJvbWVudCI6ImRldmVsb3BtZW50IiwidGltZSI6MTQ2NzEyODA0NH19.0oNLVkUYhAT8g_21d8Ss7Nju-auZew8-9BqlxLMpAi12_GWzSJhZLyl8-sGmlTtM5iFAak07Oa2RLBEcrvXhyw'.freeze
+
   def index
     path = Rails.root.join("public", "invoices")
     Dir.mkdir(path) unless File.exist?(path)
 
-    response = RestClient.get host + '/invoices/20'
+    response = RestClient.get(HOST + '/invoices/1', {Authorization: ACCESS_TOKEN})
     json_response = JSON.parse(response.body)
 
     @status = json_response["invoice_status"]
@@ -44,7 +47,7 @@ class InvoicesController < ApplicationController
                               }
     }}
 
-    @response = RestClient.post(host + '/invoices', json_invoice)
+    @response = RestClient.post(HOST + '/invoices', json_invoice, {Authorization: ACCESS_TOKEN})
   end
 
   def new_full
@@ -62,15 +65,15 @@ class InvoicesController < ApplicationController
     }
 
     #Agregar en el servidor el timbrado al crearlo para ver si le agrega el invoice_status_id
-    json_invoice = {invoice: {serie: 'N', folio: 5, date: Time.zone.now,
+    json_invoice = {invoice: {date: Time.zone.now,
                               payment_form: 'Pago en una sola exhibición.',
                               payment_conditions: 'muchas',
                               note: 'asdasd', discount_amount: 50, issuer_rfc: 'AAD990814BP7',
                               payment_method_id: 1, receipt_type_id: 1, money_id: 1,
                               is_test: 0, invoice_type_id: 1, discount_type_id: 1,
-                              branch_attributes: [name: "Sucursal prueba2", phone: "hola", serie: "K", folio: "1",
+                              branch_attributes: [name: "Sucursal prueba4456", phone: "9252525", serie: "V", folio: "1",
                                                   address_attributes: address_invoice],
-                              receptor_attributes: [name: "Prueba", social_reason: "Prueba Reason", rfc: "PEAO971212A8A",
+                              receptor_attributes: [name: "Pruebas456", social_reason: "Prueba Reason", rfc: "PEAO031212A8A",
                                                     email: "test@hotmail.com", address_attributes: address_invoice],
                               concepts_attributes: {"0": {quantity: 4, unit: "hola mundo2", price: 30,
                                                           description: "hdsda", iva_type_id: 1},
@@ -79,21 +82,15 @@ class InvoicesController < ApplicationController
                               }
     }}
 
-    @response = RestClient.post(host + '/invoices/create_full', json_invoice)
+    @response = RestClient.post(HOST + '/invoices/create_full', json_invoice, {Authorization: ACCESS_TOKEN})
   end
 
   def edit
-    @response = RestClient.get(host + "/invoices/#{params[:id]}/stamp")
+    @response = RestClient.get(HOST + "/invoices/#{params[:id]}/stamp", {Authorization: ACCESS_TOKEN})
   end
 
   def destroy
-    @response = RestClient.get(host + "/invoices/#{params[:id]}/cancel")
-  end
-
-  private
-
-  def host
-    'http://api.localhost.com:3000'
+    @response = RestClient.get(HOST + "/invoices/#{params[:id]}/cancel", {Authorization: ACCESS_TOKEN})
   end
 
 end
