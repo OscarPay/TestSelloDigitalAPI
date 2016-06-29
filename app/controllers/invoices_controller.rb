@@ -3,7 +3,7 @@ class InvoicesController < ApplicationController
 
   HOST = 'http://api.localhost.com:3000'.freeze
   ACCESS_TOKEN = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjoyLCJuYW1lIjoiVmljdG9yIiwiZW52aXJvbWVudCI6ImRldmVsb3BtZW50IiwidGltZSI6MTQ2NzIxMjk2NH19.jGG_zMc-MqBrbBQh9WpWv9kA2vA9ciVJ75tDCt71tWAXUV_-6BMo5dTqH-08frDCIGBxgymqRE3FdhyK2E05Qw'.freeze
-  ACCESS_TOKEN2 = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjozLCJuYW1lIjoiSm9yZ2UiLCJlbnZpcm9tZW50IjoiZGV2ZWxvcG1lbnQiLCJ0aW1lIjoxNDY3MjE0NDc2fX0.hB3pGD7RWUceJtmJdEmGaz6oe0zhAat9HF1C6D5j-3qFFz6R1Gg4L4Yj6fx0eCVGNjGslWy9wEoTbCTMRyW3Yg'.freeze
+  ACCESS_TOKEN2 = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjozLCJuYW1lIjoiSm9yZ2UiLCJlbnZpcm9tZW50IjoiZGV2ZWxvcG1lbnQiLCJ0aW1lIjoxNDY3MjIyNzI5fX0.8R3RC4WRIwQBM0MeCkrj0z8YGm6rtK9oWSqPeZgbJIBkX5dtQRIkjanHgO7b7tfUpM-2zWR6DxtBDKc3NTZceg'.freeze
 
   def index
     path = Rails.root.join("public", "invoices")
@@ -38,7 +38,7 @@ class InvoicesController < ApplicationController
                               payment_conditions: 'muchas',
                               note: 'asdasd', discount_amount: 50, issuer_rfc: 'AAD990814BP7',
                               payment_method_id: 1, receipt_type_id: 2, money_id: 1,
-                              receptor_rfc: 'FEHI840824SUA', branch_name: "OFICINA MICHOACAN", is_test: 0,
+                              receptor_rfc: 'PEAO941212A8A', branch_name: "OFFICE", is_test: 0,
                               invoice_type_id: 1, discount_type_id: 1,
                               concepts_attributes: {"0": {quantity: 4, unit: "hola mundo", price: 30,
                                                           description: "hdsda", iva_type_id: 1},
@@ -47,7 +47,7 @@ class InvoicesController < ApplicationController
                               }
     }}
 
-    @response = RestClient.post(HOST + '/invoices', json_invoice, {Authorization: ACCESS_TOKEN})
+    @response = RestClient.post(HOST + '/invoices', json_invoice, {Authorization: ACCESS_TOKEN2})
   end
 
   def new_full
@@ -68,7 +68,7 @@ class InvoicesController < ApplicationController
     json_invoice = {invoice: {date: Time.zone.now,
                               payment_form: 'Pago en una sola exhibición.',
                               payment_conditions: 'muchas',
-                              note: 'asdasd', discount_amount: 50, issuer_rfc: 'AAD990814BP7',
+                              note: 'asdasd', discount_amount: 50, issuer_rfc: 'AAD990914BP7',
                               payment_method_id: 1, receipt_type_id: 1, money_id: 1,
                               is_test: 0, invoice_type_id: 1, discount_type_id: 1,
                               branch_attributes: [name: "Sucursal prueba4456", phone: "9252525", serie: "V", folio: "25",
@@ -82,15 +82,15 @@ class InvoicesController < ApplicationController
                               }
     }}
 
-    @response = RestClient.post(HOST + '/invoices/create_full', json_invoice, {Authorization: ACCESS_TOKEN})
+    @response = RestClient.post(HOST + '/invoices/create_full', json_invoice, {Authorization: ACCESS_TOKEN2})
   end
 
   def edit
-    @response = RestClient.get(HOST + "/invoices/#{params[:id]}/stamp", {Authorization: ACCESS_TOKEN})
+    @response = RestClient.get(HOST + "/invoices/#{params[:id]}/stamp", {Authorization: ACCESS_TOKEN2})
   end
 
   def destroy
-    @response = RestClient.get(HOST + "/invoices/#{params[:id]}/cancel", {Authorization: ACCESS_TOKEN})
+    @response = RestClient.get(HOST + "/invoices/#{params[:id]}/cancel", {Authorization: ACCESS_TOKEN2})
   end
 
 end
